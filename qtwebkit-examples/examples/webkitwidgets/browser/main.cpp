@@ -1,0 +1,78 @@
+/****************************************************************************
+**
+** Copyright (C) 2014 Digia Plc and/or its subsidiary(-ies).
+** Contact: http://www.qt-project.org/legal
+**
+** This file is part of the demonstration applications of the Qt Toolkit.
+**
+** $QT_BEGIN_LICENSE:LGPL21$
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
+** Software or, alternatively, in accordance with the terms contained in
+** a written agreement between you and Digia. For licensing terms and
+** conditions see http://qt.digia.com/licensing. For further information
+** use the contact form at http://qt.digia.com/contact-us.
+**
+** GNU Lesser General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU Lesser
+** General Public License version 2.1 or version 3 as published by the Free
+** Software Foundation and appearing in the file LICENSE.LGPLv21 and
+** LICENSE.LGPLv3 included in the packaging of this file. Please review the
+** following information to ensure the GNU Lesser General Public License
+** requirements will be met: https://www.gnu.org/licenses/lgpl.html and
+** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+**
+** In addition, as a special exception, Digia gives you certain additional
+** rights. These rights are described in the Digia Qt LGPL Exception
+** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+**
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+#include "browserapplication.h"
+#include "webview.h"
+#include "Manage.h"
+#include "browsermainwindow.h";
+
+//{H} for count the number of hit
+int BrowserApplication::count=0;
+int BrowserApplication::hit_count=0;
+unsigned long WebView::totalTime=0;
+unsigned long WebView::preloadTotalTime=0;
+unsigned int WebView::cout_totalTime=0;
+unsigned int WebView::cout_preloadTotalTime=0;
+int WebView::cr=0;
+////////////////////////////////////
+
+int main(int argc, char **argv)
+{
+	manage go;
+
+    Q_INIT_RESOURCE(data);
+    BrowserApplication application(argc, argv);
+    if (!application.isTheOnlyBrowser() || !application.isCorrectlyInitialized())
+        return 0;
+ //   application.newMainWindow();
+   // application.exec();
+
+	go.open();
+	go.makeGraph();
+	go.comHit(5);
+	//go.comLog();
+	//go.comHit2();
+	//go.comHit_comNode();
+	//go.accesstime();
+	go.close();
+
+cout << "---------------------------------------------------------\n";
+cout << "Node size " << (sizeof(Node*)*50) + (sizeof(int)*50) + (sizeof(int)*2) + sizeof(int) + sizeof(char*) + sizeof(int) + sizeof(linkedqueue*) + (sizeof(Node*)*50) + sizeof(char*) + sizeof(void) + sizeof(void) + sizeof(Node*) + sizeof(int) + sizeof(Node**) + sizeof(int) + sizeof(long) + sizeof(int) + sizeof(void) + sizeof(long) << endl;
+
+cout << "---------------------------------------------------------\n";
+cout << "Estimated total loading time without preloading : " << WebView::totalTime << endl;
+cout << "Total loading time using preloading : " << WebView::preloadTotalTime << endl;
+cout << "---------------------------------------------------------\n\n";	
+    return 0;
+}
+

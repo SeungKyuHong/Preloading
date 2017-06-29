@@ -1,0 +1,85 @@
+hit / total : 8 / 50 => 0
+Estimated total loading time without preloading : 17864, cout : 0
+Total loading time using preloading : 16156, cout : 0
+---------------------------------------------------------
+
+hit / total : 12 / 100 => 0
+Estimated total loading time without preloading : 49006, cout : 0
+Total loading time using preloading : 37447, cout : 0
+---------------------------------------------------------
+
+hit / total : 12 / 150 => 0
+Estimated total loading time without preloading : 57719, cout : 0
+Total loading time using preloading : 46160, cout : 0
+---------------------------------------------------------
+
+hit / total : 17 / 200 => 0
+Estimated total loading time without preloading : 92207, cout : 0
+Total loading time using preloading : 80006, cout : 0
+---------------------------------------------------------
+
+hit / total : 17 / 250 => 0
+Estimated total loading time without preloading : 102782, cout : 0
+Total loading time using preloading : 90581, cout : 0
+---------------------------------------------------------
+
+hit / total : 17 / 300 => 0
+Estimated total loading time without preloading : 106264, cout : 0
+Total loading time using preloading : 94063, cout : 0
+---------------------------------------------------------
+
+hit / total : 28 / 350 => 0
+Estimated total loading time without preloading : 111144, cout : 0
+Total loading time using preloading : 96461, cout : 0
+---------------------------------------------------------
+
+hit / total : 33 / 400 => 0
+Estimated total loading time without preloading : 127017, cout : 0
+Total loading time using preloading : 112335, cout : 0
+---------------------------------------------------------
+
+hit / total : 33 / 450 => 0
+Estimated total loading time without preloading : 135536, cout : 0
+Total loading time using preloading : 120854, cout : 0
+---------------------------------------------------------
+
+hit / total : 37 / 500 => 0
+Estimated total loading time without preloading : 161150, cout : 0
+Total loading time using preloading : 146017, cout : 0
+---------------------------------------------------------
+
+hit / total : 44 / 550 => 0
+Estimated total loading time without preloading : 212500, cout : 0
+Total loading time using preloading : 178255, cout : 0
+---------------------------------------------------------
+
+hit / total : 50 / 600 => 0
+Estimated total loading time without preloading : 267557, cout : 0
+Total loading time using preloading : 214179, cout : 0
+---------------------------------------------------------
+
+hit / total : 58 / 650 => 0
+Estimated total loading time without preloading : 319474, cout : 0
+Total loading time using preloading : 265993, cout : 0
+---------------------------------------------------------
+
+hit / total : 62 / 700 => 0
+Estimated total loading time without preloading : 357020, cout : 0
+Total loading time using preloading : 294562, cout : 0
+---------------------------------------------------------
+
+hit / total : 69 / 750 => 0
+Estimated total loading time without preloading : 412828, cout : 0
+Total loading time using preloading : 349791, cout : 0
+---------------------------------------------------------
+
+hit / total : 79 / 800 => 0
+Estimated total loading time without preloading : 456397, cout : 0
+Total loading time using preloading : 387309, cout : 0
+---------------------------------------------------------
+
+hit / total : 0 / 20 => 0
+Estimated total loading time without preloading : 7399, cout : 0
+Total loading time using preloading : 7399, cout : 0
+---------------------------------------------------------
+
