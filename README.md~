@@ -25,6 +25,8 @@ We have modified or implemented the following files
 	- linkedqueue.h
 	- linkedqueue.cpp
 	- main.cpp
+	- Manage.h
+	- Manage.cpp
 	- my_queue.h
 	- my_queue.cpp
 	- Node.h
