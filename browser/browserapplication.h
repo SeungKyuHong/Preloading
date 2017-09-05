@@ -47,7 +47,6 @@
 #include <QElapsedTimer>
 #include "Graph.h"
 #include <string.h>
-#include "boost_graph.h"
 QT_BEGIN_NAMESPACE
 class QLocalServer;
 QT_END_NAMESPACE

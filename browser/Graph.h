@@ -9,7 +9,6 @@ private:
 	Node* head;
 	Node* temp_node; //temp node for store in Q
 
-	/temp variable
 	unsigned long graph_size;
 	int HIDDEN_SIZE;
 public:
