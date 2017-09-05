@@ -1,5 +1,5 @@
 # Preloading browser
-Preloading version 1.01
+Preloading version 1.02
 
 ## Introduction
 We use Qt-5.4.2 browser.
@@ -8,7 +8,7 @@ Because Qt-wetkit have a very large capacity, we upload two directory in root.
 This web browser is Qt-based and Webkit-based browser for a system with NVRAM.
 
 We have modified or implemented the following files
- 1. /qtbase/src/wigets/wigets/
+ 1. /qtbase/src/widgets/widgets/
 	- qtabbar.h
 	- qtabbar.cpp
 	- qtabbar_p.h

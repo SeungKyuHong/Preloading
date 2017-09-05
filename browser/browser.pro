@@ -41,8 +41,7 @@ HEADERS += \
     Graph.h \
     Node.h \
     linkedqueue.h \
-    my_queue.h \
-    Manage.h
+    my_queue.h
 
 SOURCES += \
     autosaver.cpp \
@@ -69,8 +68,7 @@ SOURCES += \
     Graph.cpp \
     Node.cpp \
     linkedqueue.cpp \
-    my_queue.cpp \
-    Manage.cpp
+    my_queue.cpp
 
 RESOURCES += data/data.qrc htmls/htmls.qrc
 
