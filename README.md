@@ -1,5 +1,5 @@
 # Preloading browser
-Preloading version 1.02
+Preloading version 1.02.1
 
 ## Introduction
 We use Qt-5.4.2 browser.
