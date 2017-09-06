@@ -125,6 +125,8 @@ private slots:
     void updateToolbarActionText(bool visible);
     void updateBookmarksToolbarActionText(bool visible);
 
+    void close_immediately();
+
 private:
     void loadDefaultState();
     void setupMenu();
@@ -158,6 +160,8 @@ private:
     QIcon m_stopIcon;
 
     QString m_lastSearch;
+
+    static int comfirm_first_loading;
 };
 
 #endif // BROWSERMAINWINDOW_H

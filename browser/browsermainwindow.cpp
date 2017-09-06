@@ -64,7 +64,11 @@
 
 #include <QtCore/QDebug>
 
+#include <stdlib.h>
+
 #define tabNum 5
+
+int BrowserMainWindow::comfirm_first_loading=0;
 
 BrowserMainWindow::BrowserMainWindow(QWidget *parent, Qt::WindowFlags flags)
     : QMainWindow(parent, flags)
@@ -273,9 +277,9 @@ void BrowserMainWindow::setupMenu()
     fileMenu->addSeparator();
 
 #if defined(Q_OS_OSX)
-    fileMenu->addAction(tr("&Quit"), BrowserApplication::instance(), SLOT(quitBrowser()), QKeySequence(Qt::CTRL | Qt::Key_Q));
+    //fileMenu->addAction(tr("&Quit"), BrowserApplication::instance(), SLOT(quitBrowser()), QKeySequence(Qt::CTRL | Qt::Key_Q));
 #else
-    fileMenu->addAction(tr("&Quit"), this, SLOT(close()), QKeySequence(Qt::CTRL | Qt::Key_Q));
+    //fileMenu->addAction(tr("&Quit"), this, SLOT(close()), QKeySequence(Qt::CTRL | Qt::Key_Q));
 #endif
 
     // Edit
@@ -549,9 +553,12 @@ void BrowserMainWindow::loadUrl(const QUrl &url)
     if (!currentTab() || !url.isValid())
         return;
 
-    //	Create hidden tabs for preloading	//
-    for(int t=0; t<tabNum; t++){	//Create tabs when the browser is started
-   	m_tabWidget->newTab(0);
+    if(comfirm_first_loading==0){
+ 	   //	Create hidden tabs for preloading	//
+  	  for(int t=0; t<tabNum; t++){	//Create tabs when the browser is started
+   		m_tabWidget->newTab(0);
+    	  }
+	  comfirm_first_loading=7;
     }
     WebView *webView = currentTab();  
     webView->my_linkclicked(url); 
@@ -947,4 +954,9 @@ void BrowserMainWindow::slotOpenActionUrl(QAction *action)
 void BrowserMainWindow::geometryChangeRequested(const QRect &geometry)
 {
     setGeometry(geometry);
+}
+
+void BrowserMainWindow::close_immediately()
+{
+	exit(0);
 }

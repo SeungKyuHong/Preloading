@@ -35,8 +35,24 @@
 #include "webview.h"
 #include "browsermainwindow.h"
 
+#include <sys/types.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
+#include <termios.h>
+#include <linux/kd.h>
+
+#define TERM_TTY_SETTING_MODE	0
+#define TERM_TTY_SETTING_KEYBOARD	1
+
+char term_tty_settings[2];
+
+void term_get_prev_setting();
+void term_restoring_lazy();
+
 int main(int argc, char **argv)
 {
+    term_get_prev_setting();
+
     Q_INIT_RESOURCE(data);
     BrowserApplication application(argc, argv);
     if (!application.isTheOnlyBrowser() || !application.isCorrectlyInitialized())
@@ -47,3 +63,26 @@ int main(int argc, char **argv)
     return 0;
 }
 
+void term_get_prev_setting()
+{
+    int term_tty_fd = open("/dev/tty1", O_RDWR);
+
+    ioctl(term_tty_fd, KDGETMODE, &term_tty_settings[TERM_TTY_SETTING_MODE]);
+    ioctl(term_tty_fd, KDGETMODE, &term_tty_settings[TERM_TTY_SETTING_KEYBOARD]);
+    close(term_tty_fd);
+
+    atexit(term_restoring_lazy);
+}
+
+void term_restoring_lazy()
+{
+    int term_tty_fd = open("/dev/tty1", O_RDWR);
+    const char term_tty_reset_msg[] = "\033[9;15]\033[?33h\033h\?25h\033[?0c";
+
+    ioctl(term_tty_fd, KDGETMODE, &term_tty_settings[TERM_TTY_SETTING_MODE]);
+    ioctl(term_tty_fd, KDGETMODE, &term_tty_settings[TERM_TTY_SETTING_KEYBOARD]);
+
+    write(term_tty_fd, term_tty_reset_msg, sizeof(term_tty_reset_msg));
+
+    close(term_tty_fd);
+}
