@@ -279,7 +279,7 @@ void BrowserMainWindow::setupMenu()
 #if defined(Q_OS_OSX)
     //fileMenu->addAction(tr("&Quit"), BrowserApplication::instance(), SLOT(quitBrowser()), QKeySequence(Qt::CTRL | Qt::Key_Q));
 #else
-    //fileMenu->addAction(tr("&Quit"), this, SLOT(close()), QKeySequence(Qt::CTRL | Qt::Key_Q));
+    fileMenu->addAction(tr("&Quit"), this, SLOT(close_immediately()), QKeySequence(Qt::CTRL | Qt::Key_Q));
 #endif
 
     // Edit
