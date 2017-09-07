@@ -159,7 +159,6 @@ void Graph::fill_edge_g(Node* P){
 
 		if(edgeKey==0 && Pcon<HIDDEN_SIZE) {
 			P->edge[Pcon] = sort[edgeCon];
-cout << "edge[Pcon] : " << P->edge[Pcon]->url <<endl;
 			Pcon++;
 		}
 		edgeCon++;

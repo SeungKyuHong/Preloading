@@ -397,7 +397,7 @@ void TabWidget::load_hiddenTab(Graph* head, char* cur_url)
 	{
 		tabBar()->moveTab(0, tabNum);	//{H}hiddentab number
 		setCurrentIndex(tabNum);	//{H}hiddentab number
-		//tabBar()->tabHide(-1, -1);
+		tabBar()->tabHide(-1, -1);
 		check_first =1;
 	}    
 
