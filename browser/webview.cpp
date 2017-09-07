@@ -265,10 +265,11 @@ void WebView::setProgress(int progress)
 void WebView::loadFinished()
 {
 	////////////////////////////////////intelligent browser start
-	if (100 != m_progress) {
-		qWarning() << "Received finished signal while progress is still:" << progress()
-			<< "Url:" << url();
-	}
+	/*if (100 != m_progress) {
+		//qWarning() << "Received finished signal while progress is still:" << progress()
+			//<< "Url:" << url();
+		QTimer::singleShot(1000, this, SLOT(reload()));
+	}*/
 	TabWidget* temp_tabWidget = m_page->mainWindow()->tabWidget();   
 	int tab_index;     
 	////////////////////////////////////intelligent browser end  
@@ -277,8 +278,10 @@ void WebView::loadFinished()
 	////////////////////////////////////intelligent browser start
 	if( tab_index ==5)   
 	{
+cout<<"1\n";
 		if( title()!= QString())
 		{
+cout<<"11\n";
 			global_msecs = load_timer.elapsed();
 
 			BrowserApplication::gethead()->set_temp_node(BrowserApplication::gethead()->count( BrowserApplication::gethead()->get_temp_node(), H_url, global_msecs));
@@ -288,6 +291,7 @@ void WebView::loadFinished()
 			BrowserApplication::gethead()->G_queue->Enqueue(BrowserApplication::gethead()->G_queue,new_queue); 
 
 			temp_tabWidget = m_page->mainWindow()->tabWidget();  
+cout<<"111\n";
 			temp_tabWidget->load_hiddenTab(BrowserApplication::gethead(),BrowserApplication::gethead()->get_temp_node()->url); 
 		}
 	}
@@ -381,7 +385,7 @@ bool WebView::linkClicked(QUrl url) {
 		if(!strcmp(temp_tabWidget->get_preurl(i).toString().toUtf8().data(),s_edit_url)){	//when the request Node is the same with the URL Node
 			temp_tabWidget->tabBar()->moveTab(i,5);
 			temp_tabWidget->tabBar()->moveTab(4,i); 
-			temp_tabWidget->tabBar()->tabHide(i, i);
+			//temp_tabWidget->tabBar()->tabHide(i, i);
 
 			temp_tabWidget->tabBar()->tabShow(5);
 			temp_tabWidget->setCurrentIndex(5);

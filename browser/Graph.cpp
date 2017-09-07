@@ -159,6 +159,7 @@ void Graph::fill_edge_g(Node* P){
 
 		if(edgeKey==0 && Pcon<HIDDEN_SIZE) {
 			P->edge[Pcon] = sort[edgeCon];
+cout << "edge[Pcon] : " << P->edge[Pcon]->url <<endl;
 			Pcon++;
 		}
 		edgeCon++;
@@ -276,15 +277,26 @@ int Graph::BinarySearch(int Size,char* i_url)
 
     Left = 0;
     Right = Size-1;
+
     while (Left <= Right)
     {
-        Mid = (Left + Right) / 2;
+	Mid = (Left + Right) / 2;
+    	if(Size<=3){
+		if (strcmp(i_url,arr_url[Mid]->url)==0)
+        		return Mid;
+      		else if (Size==1)
+			return -1;
+        	else
+            		Left = Mid + 1;
+    }
+    else{
 	if (strcmp(i_url,arr_url[Mid]->url)==0)
             return Mid;
         else if (strcmp(i_url,arr_url[Mid]->url)>0)
             Left = Mid + 1;
         else
             Right = Mid - 1;
+    }
     }
     return -1;
 }

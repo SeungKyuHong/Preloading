@@ -397,25 +397,23 @@ void TabWidget::load_hiddenTab(Graph* head, char* cur_url)
 	{
 		tabBar()->moveTab(0, tabNum);	//{H}hiddentab number
 		setCurrentIndex(tabNum);	//{H}hiddentab number
-		tabBar()->tabHide(-1, -1);
+		//tabBar()->tabHide(-1, -1);
 		check_first =1;
 	}    
-	
-	int f_node_index = head->BinarySearch(head->a_index,cur_url);
 
+	int f_node_index = head->search(head->a_index,cur_url);
 	if(f_node_index>=0)
 	{
 		Node* f_node = head->arr_url[f_node_index];
-
 		f_node->get_e_index();
 
 	   	int k=0;	
 		int j=0;
 
-		while(f_node->get_edge()[j] != NULL) {	
-			if(strcmp(f_node->get_edge()[j]->url,cur_url)!=0){
-            			set_preurl(k,f_node->get_edge()[j]->url);
-               			webView(k)->loadUrl(QUrl(f_node->get_edge()[j]->url));
+		while(f_node->edge[j] != NULL) {
+			if(strcmp(f_node->edge[j]->url,cur_url)!=0){
+            			set_preurl(k,f_node->edge[j]->url);
+               			webView(k)->loadUrl(QUrl(f_node->edge[j]->url));
                			k++;
            		}
          		j++;
