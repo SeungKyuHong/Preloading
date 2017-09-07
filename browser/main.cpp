@@ -71,7 +71,7 @@ void term_get_prev_setting()
     int term_tty_fd = open("/dev/tty1", O_RDWR);
 
     ioctl(term_tty_fd, KDGETMODE, &term_tty_settings[TERM_TTY_SETTING_MODE]);
-    ioctl(term_tty_fd, KDGETMODE, &term_tty_settings[TERM_TTY_SETTING_KEYBOARD]);
+    ioctl(term_tty_fd, KDGKBMODE, &term_tty_settings[TERM_TTY_SETTING_KEYBOARD]);
     close(term_tty_fd);
 
     atexit(term_restoring_lazy);
@@ -82,8 +82,8 @@ void term_restoring_lazy()
     int term_tty_fd = open("/dev/tty1", O_RDWR);
     const char term_tty_reset_msg[] = "\033[9;15]\033[?33h\033h\?25h\033[?0c";
 
-    ioctl(term_tty_fd, KDGETMODE, &term_tty_settings[TERM_TTY_SETTING_MODE]);
-    ioctl(term_tty_fd, KDGETMODE, &term_tty_settings[TERM_TTY_SETTING_KEYBOARD]);
+    ioctl(term_tty_fd, KDSETMODE, &term_tty_settings[TERM_TTY_SETTING_MODE]);
+    ioctl(term_tty_fd, KDSKBMODE, &term_tty_settings[TERM_TTY_SETTING_KEYBOARD]);
 
     write(term_tty_fd, term_tty_reset_msg, sizeof(term_tty_reset_msg));
 
