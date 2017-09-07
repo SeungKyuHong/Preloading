@@ -41,10 +41,13 @@
 #include <termios.h>
 #include <linux/kd.h>
 
+#include <unistd.h>
+#include <stdlib.h>
+
 #define TERM_TTY_SETTING_MODE	0
 #define TERM_TTY_SETTING_KEYBOARD	1
 
-char term_tty_settings[2];
+int term_tty_settings[2];
 
 void term_get_prev_setting();
 void term_restoring_lazy();
